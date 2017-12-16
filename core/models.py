@@ -21,7 +21,6 @@ class Recipe(models.Model):
     description = models.TextField(default='Description Placeholder')
     location = models.ManyToManyField(to=Location)
     ingredients = models.ManyToManyField(to=Ingredient)
-    amount = models.CharField(max_length=200)
     minutes = models.PositiveIntegerField()
     youtube = models.CharField(max_length=200, null=True, blank=True)
 
@@ -41,4 +40,3 @@ class Step(models.Model):
 
     class Meta:
         unique_together = ('order', 'recipe',)
-
