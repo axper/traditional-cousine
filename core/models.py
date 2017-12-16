@@ -5,12 +5,18 @@ class Location(models.Model):
     country = models.CharField(max_length=200)
     region = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.region
+
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
     calories = models.PositiveIntegerField()
     picture = models.ImageField()
     is_vegetarian = models.BooleanField()
+
+    def __str__(self):
+        return self.name
 
 
 class Recipe(models.Model):
@@ -23,8 +29,14 @@ class Recipe(models.Model):
     minutes = models.PositiveIntegerField()
     youtube = models.CharField(max_length=200, null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Step(models.Model):
     description = models.TextField(max_length=20000, default='Step Description Placeholder')
     picture = models.ImageField()
     recipe = models.ForeignKey(to=Recipe, related_name='steps')
+
+    def __str__(self):
+        return self.description[0:20]
