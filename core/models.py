@@ -18,8 +18,7 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=200)
-    short_description = models.CharField(max_length=200, default='Short Description Placeholder')
-    description = models.TextField(max_length=20000, default='Description Placeholder')
+    description = models.TextField(default='Description Placeholder')
     location = models.ManyToManyField(to=Location)
     ingredients = models.ManyToManyField(to=Ingredient)
     amount = models.CharField(max_length=200)

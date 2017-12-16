@@ -7,6 +7,7 @@ from core import models
 class StepAdmin(admin.StackedInline):
     model = models.Step
 
+
 class RecipeAdmin(admin.ModelAdmin):
     inlines = [StepAdmin]
 
