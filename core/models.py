@@ -11,7 +11,6 @@ class Location(models.Model):
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
-    calories = models.PositiveIntegerField()
     picture = models.ImageField()
     is_vegetarian = models.BooleanField()
 
