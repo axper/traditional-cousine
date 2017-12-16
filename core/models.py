@@ -11,8 +11,6 @@ class Location(models.Model):
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
-    picture = models.ImageField()
-    is_vegetarian = models.BooleanField()
 
     def __str__(self):
         return self.name
