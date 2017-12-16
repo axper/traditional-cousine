@@ -16,12 +16,14 @@
         <h2>Steps</h2>
         <ul data-uk-accordion>
             {% for step in steps %}
-                <li class="uk-open">
-                    <h3 class="uk-accordion-title">{{ step.order }}</h3>
-                    <div class="uk-accordion-content">
-                        <p>{{ step.description }}</p>
-                    </div>
-                </li>
+                <a href="{% url "core:step" step.recipe.id step.order %}">
+                    <li class="uk-open">
+                        <h3 class="uk-accordion-title">{{ step.order }}</h3>
+                        <div class="uk-accordion-content">
+                            <p>{{ step.description }}</p>
+                        </div>
+                    </li>
+                </a>
             {% endfor %}
         </ul>
         {% if recipe.youtube %}

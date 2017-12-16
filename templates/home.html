@@ -11,15 +11,17 @@
         </form>
 
         {% for recipe in recipes %}
-            <div class="uk-card uk-card-default">
-                <div class="uk-card-media-top">
-                    <img src="{{ recipe.picture }}" alt="">
+            <a href="{% url "core:detail" recipe.id %}">
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="{{ recipe.picture }}" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">{{ recipe.name }}</h3>
+                        <p>{{ recipe.short_description }}</p>
+                    </div>
                 </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">{{ recipe.name }}</h3>
-                    <p>{{ recipe.short_description }}</p>
-                </div>
-            </div>
+            </a>
         {% endfor %}
 
     </div>

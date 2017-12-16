@@ -7,6 +7,8 @@
     <div class="uk-container uk-container-small">
         <p>{{ step.time }}</p>
         <p>{{ step.description }}</p>
-        <p><img src="{{ step.picture.url }}"/></p>
+        {% if step.picture %}
+            <p><img src="{{ step.picture.url }}"/></p>
+        {% endif %}
     </div>
 {% endblock %}
