@@ -20,4 +20,5 @@ from core import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^detail/(?P<recipe_id>\d+)/$', views.detail, name='detail'),
+    url(r'^detail/(?P<recipe_id>\d+)/(?P<order>\d+)/$', views.step, name='step'),
 ]

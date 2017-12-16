@@ -4,8 +4,9 @@ from django.contrib import admin
 from core import models
 
 
-class StepAdmin(admin.StackedInline):
+class StepAdmin(admin.TabularInline):
     model = models.Step
+    extra = 0
 
 
 class RecipeAdmin(admin.ModelAdmin):

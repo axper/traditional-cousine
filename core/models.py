@@ -17,12 +17,12 @@ class Ingredient(models.Model):
 
 
 class Recipe(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, default='Recipe Name')
     description = models.TextField(default='Description Placeholder')
     picture = models.ImageField(null=True, blank=True)
     location = models.ManyToManyField(to=Location)
     ingredients = models.ManyToManyField(to=Ingredient)
-    minutes = models.PositiveIntegerField()
+    minutes = models.PositiveIntegerField(default=1)
     youtube = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):

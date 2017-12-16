@@ -22,7 +22,9 @@ def detail(request, recipe_id):
     return render(request, 'detail.html', context)
 
 
-def step(request):
+def step(request, recipe_id, order):
+    step_obj = Step.objects.get(recipe__id=recipe_id, order=order)
     context = {
+        'step': step_obj,
     }
     return render(request, 'step.html', context)

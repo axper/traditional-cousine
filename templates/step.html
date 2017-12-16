@@ -1,7 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
-    Step ? - Traditional Cuisine
+    Step {{ step.order }} of {{ step.recipe.name }} - Traditional Cuisine
 {% endblock %}
 {% block body %}
-    this is step
+    <div class="uk-container uk-container-small">
+        <p>{{ step.time }}</p>
+        <p>{{ step.description }}</p>
+        <p><img src="{% static "{{ step.picture.url }}" %}"/></p>
+
+    </div>
 {% endblock %}
