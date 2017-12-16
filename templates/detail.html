@@ -1,29 +1,31 @@
 {% extends "base.html" %}
 {% block title %}
-    Recipe Details - Traditional Cusine
-{% endblock %}
-{% block head %}
+    Recipe Details - Traditional Cuisine
 {% endblock %}
 {% block body %}
-    this is detail
-    <ul uk-accordion>
-        <li class="uk-open">
-            <h3 class="uk-accordion-title">Item 1</h3>
-            <div class="uk-accordion-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-        </li>
-        <li>
-            <h3 class="uk-accordion-title">Item 2</h3>
-            <div class="uk-accordion-content">
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-            </div>
-        </li>
-        <li>
-            <h3 class="uk-accordion-title">Item 3</h3>
-            <div class="uk-accordion-content">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
-            </div>
-        </li>
-    </ul>
+    <div class="uk-container uk-container-small">
+        <h1>{{ recipe.name }}</h1>
+        <p>{{ recipe.description }}</p>
+        <p>This recipe is from {{ recipe.location.region }}, {{ recipe.location.country }}.</p>
+        <h2>Ingredients</h2>
+            <ul>
+                {% for ingredient in recipe.ingredients.all %}
+                    <li>{{ ingredient.name }}</li>
+                {% endfor %}
+            </ul>
+        <h2>Steps</h2>
+        <ul data-uk-accordion>
+            {% for step in steps %}
+                <li class="uk-open">
+                    <h3 class="uk-accordion-title">{{ step.order }}</h3>
+                    <div class="uk-accordion-content">
+                        <p>{{ step.description }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if recipe.youtube %}
+            <p><a href="{{ recipe.youtube }}">Youtube Video</a></p>
+        {% endif %}
+    </div>
 {% endblock %}
