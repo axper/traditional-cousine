@@ -1,6 +1,35 @@
 {% extends "base.html" %}
+{% block title %}
+    Home - Traditional Cusine
+{% endblock %}
 {% block head %}
 {% endblock %}
 {% block body %}
-    this is home
+    <div class="uk-container uk-container-small">
+        this is home
+        <form class="uk-search uk-search-default uk-align-right">
+            <span uk-search-icon></span>
+            <input class="uk-search-input" type="search" placeholder="">
+        </form>
+
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-media-top">
+                <img src="https://getuikit.com/docs/images/light.jpg" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">Media Top</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+        </div>
+
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-media-top">
+                <img src="https://getuikit.com/docs/images/light.jpg" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">Media Top</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
