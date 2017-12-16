@@ -7,7 +7,6 @@
     <div class="uk-container uk-container-small">
         <p>{{ step.time }}</p>
         <p>{{ step.description }}</p>
-        <p><img src="{% static "{{ step.picture.url }}" %}"/></p>
-
+        <p><img src="{{ step.picture.url }}"/></p>
     </div>
 {% endblock %}
