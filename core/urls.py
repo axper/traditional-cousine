@@ -19,4 +19,5 @@ from core import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    url(r'^detail$', views.detail, name='detail'),
 ]
