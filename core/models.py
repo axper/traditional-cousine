@@ -31,9 +31,15 @@ class Recipe(models.Model):
 
 
 class Step(models.Model):
+    order = models.PositiveIntegerField(default=0)
     description = models.TextField(max_length=20000, default='Step Description Placeholder')
-    picture = models.ImageField()
+    picture = models.ImageField(null=True, blank=True)
     recipe = models.ForeignKey(to=Recipe, related_name='steps')
+    time = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.description[0:20]
+
+    class Meta:
+        unique_together = ('order', 'recipe',)
+
