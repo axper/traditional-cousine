@@ -6,14 +6,14 @@
     <div class="uk-container uk-container-small">
 
         <form class="uk-search uk-search-default uk-align-right">
-            <span uk-search-icon></span>
+            <span data-uk-search-icon></span>
             <input class="uk-search-input" type="search" placeholder="">
         </form>
 
         {% for recipe in recipes %}
             <div class="uk-card uk-card-default">
                 <div class="uk-card-media-top">
-                    <img src="https://getuikit.com/docs/images/light.jpg" alt="">
+                    <img src="{{ recipe.picture }}" alt="">
                 </div>
                 <div class="uk-card-body">
                     <h3 class="uk-card-title">{{ recipe.name }}</h3>
