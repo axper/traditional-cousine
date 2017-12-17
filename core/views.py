@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.core.mail import send_mail
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
 
 from core import models
 from core.models import Step, Recipe
@@ -32,3 +34,28 @@ def step(request, recipe_id, order):
 
 def about(request):
     return render(request, 'about.html')
+
+
+def subscribe(request):
+    if request.method != "POST":
+        return redirect(to='core:home')
+    email = request.POST['email']
+    if not email:
+        return HttpResponse(content='email cannot be empty', status=400)
+    print('Subscribed email: ' + email)
+    content = '<p>Welcome to Hamegh!</p>' \
+        '<p>You have successfully subscribed to our recipes! If you have any further questions, ' \
+        'please feel free to contact us via hamegh-help@lazydevelo.com</p>' \
+        'Thank you!<br>' \
+        '<center style="color:#606060">' \
+        'Copyright © {% now "Y" %} The Hamegh Team. All rights reserved.<br>' \
+        'You are receiving this email because you subscribed to Hamegh via our web ' \
+        'interface.</center>'
+    send_mail(
+        'You have successfully subscribed to Hamegh',
+        content,
+        'no-reply@hamegh.com',
+        [email],
+        fail_silently=False,
+    )
+    return redirect(to='core:home')

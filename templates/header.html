@@ -14,9 +14,26 @@ padding-bottom: 80px;">
     <div class="uk-position-small uk-position-top-right">
         <ul class="uk-subnav" uk-margin>
             <li class="uk-active"><a href="{% url "core:home" %}">Home</a></li>
-            <li><a href="#">Subscribe</a></li>
-            <li><a href="{% url "core:about" %}">About</a></li>
+            <li><a href="#" uk-toggle="target: #subscribe">Subscribe</a></li>
+            <li><a href="{% url "core:about" %}">The Team</a></li>
         </ul>
+    </div>
+
+    <div id="subscribe" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">Subscribe to our recipes</h2>
+            <p>Input your email address and we'll send you regular updates of our tasty recipes!</p>
+            <form id="email-form" method="post" action="{% url "core:subscribe" %}">
+                {% csrf_token %}
+                <input class="uk-input uk-width-1-1" name="email" type="email"
+                       placeholder="Your email goes here">
+            </form>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary" type="submit"
+                        form="email-form" value="Subscribe">Subscribe!</button>
+            </p>
+        </div>
     </div>
 </div>
 {#<div style="height: 40px"></div>#}
