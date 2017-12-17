@@ -8,9 +8,7 @@
     {% include "header.html" %}
 
     <div class="uk-margin uk-margin-right uk-margin-left uk-grid">
-        <div class="uk-width-3-5">
-
-        </div>
+        <div id="map" class="uk-width-3-5" style="height: 40em;"></div>
         <div class="uk-width-2-5">
             {% for recipe in recipes %}
                 <a href="{% url "core:detail" recipe.id %}">
@@ -35,5 +33,74 @@
             {% endfor %}
         </div>
     </div>
+
+    <script>
+
+        function initMap() {
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: {lat: 40.1882858, lng: 44.5187035}
+            });
+
+            var locations = [
+                {
+                    pos: {lat: 40.18, lng: 44.51},
+                    name: 'Yerevan',
+                    descr: 'Description',
+                    link: '{% url "core:detail" 1 %}'
+                },
+                {
+                    pos: {lat: -32.563910, lng: 147.154312},
+                    name: 'BBB',
+                    descr: 'Descr',
+                    link: '{% url "core:detail" 1 %}'
+                }
+            ];
+
+            var markers = [];
+
+            for (i = 0; i < locations.length; i++) {
+                //    alert (locations[i]);
+                var marker = new google.maps.Marker({
+                    position: locations[i]['pos'],
+
+                });
+
+                var contentString = '<div id="content"><h1>'+locations[i]['name'] +
+                    '</h1><p>'+locations[i]['descr']+' <a href="'+locations[i]['link']+'">link</a></p></div>';
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+
+                markers.push(marker) ;
+            }
+
+            // Add some markers to the map.
+            // Note: The code uses the JavaScript Array.prototype.map() method to
+            // create an array of markers based on a given "locations" array.
+            // The map() method here has nothing to do with the Google Maps API.
+            //var markers = locations.map(function(location, i) {
+
+            //});
+
+
+
+            // Add a marker clusterer to manage the markers.
+            var markerCluster = new MarkerClusterer(map, markers,
+                {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+        }
+
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0u9MelcVNyb-Atf319FeQRNoEvcZktwM&callback=initMap">
+    </script>
 
 {% endblock %}
