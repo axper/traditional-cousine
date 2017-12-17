@@ -80,7 +80,8 @@
                 });
 
                 var contentString = '<div id="content"><h1>' + locations[i]['name'] +
-                    '</h1><p>' + locations[i]['descr'] + ' <a href="' + locations[i]['link'] + '">link</a></p></div>';
+                    '</h1><p> <a href="' +
+                    '">Find recepies in ' + locations[i]['link'] + '</a></p></div>';
 
                 infowindow.push(new google.maps.InfoWindow({
                     content: contentString
