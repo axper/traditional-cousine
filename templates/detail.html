@@ -57,25 +57,24 @@
                         <h2 class="uk-card-title"><b>Directions</b></h2>
                     </div>
                     <div class="uk-card-body">
-                        <ul data-uk-accordion>
+                        <ul style="list-style: none;">
                             {% for step in steps %}
                                 <li class="uk-open">
-                                    <h3 class="uk-accordion-title">
-                                        <span class="uk-badge"
-                                              style="
-                                              min-width: 42px;
-                                              height: 42px;
-                                              font-size: 1.875rem;
-                                              background: #A71E20;">
-                                            {{ step.order }}
-                                        </span>
-                                        {% if step.time %} ({{ step.time }} minutes){% endif %}
-                                    </h3>
-                                    <div class="uk-accordion-content">
+                                    <p><span class="uk-badge"
+                                          style="
+                                          min-width: 42px;
+                                          height: 42px;
+                                          font-size: 1.875rem;
+                                          background: #A71E20;
+                                          margin-right: 20px;" class="margin-right">
+                                        {{ step.order }}
+                                    </span>
+                                    {{ step.description }}</p>
+                                    {% if step.time %} ({{ step.time }} minutes){% endif %}
+                                    <div>
                                         {% if step.picture %}
                                             <img src="{{ step.picture.url }}" class="uk-width-1-1">
                                         {% endif %}
-                                        <p>{{ step.description }}</p>
                                     </div>
                                 </li>
                             {% endfor %}
