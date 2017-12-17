@@ -39,29 +39,58 @@
         function initMap() {
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 7,
-                center: {lat: 40.1882858, lng: 44.5187035}
+                zoom: 8,
+                center: {lat: 40.1, lng: 45.}
             });
 
             var locations = [
                 {
                     pos: {lat: 40.18, lng: 44.51},
-                    name: 'Yerevan',
-                    descr: 'Description',
-                    link: '{% url "core:detail" 1 %}'
+                    name: 'Yerevan, Armenia',
+                    descr: 'Yerevan, Armenia',
+                    link: '/detail/1/'
                 },
                 {
-                    pos: {lat: -32.563910, lng: 147.154312},
-                    name: 'BBB',
-                    descr: 'Descr',
-                    link: '{% url "core:detail" 1 %}'
+                    pos: {lat: 40.7844531, lng: 43.8703652},
+                    name: 'Gyumri, Armenia',
+                    descr: 'Gyumri, Armenia',
+                    link: '/detail/2/'
+                },
+                {
+                    pos: {lat: 40.8160519, lng: 44.50489},
+                    name: 'Vanadzor, Armenia',
+                    descr: 'Vanadzor, Armenia',
+                    link: '/detail/3/'
+                },
+                {
+                    pos: {lat: 39.2121092, lng: 46.3966627},
+                    name: 'Kapan, Armenia',
+                    descr: 'Kapan, Armenia',
+                    link: '/detail/4/'
+                },
+                {
+                    pos: {lat: 40.3546108, lng: 45.2020519},
+                    name: 'Gavar, Armenia',
+                    descr: 'Gavar, Armenia',
+                    link: '/detail/5/'
+                },
+                {
+                    pos: {lat: 39.759131, lng: 46.7306898},
+                    name: 'Shushi, Armenia',
+                    descr: 'Shushi, Armenia',
+                    link: '/detail/6/'
+                },
+                {
+                    pos: {lat: 59.437194, lng: 24.7117272},
+                    name: 'Tallinn, Estonia',
+                    descr: 'Tallinn, Estonia',
+                    link: '/detail/7/'
                 }
             ];
 
             var markers = [];
 
             for (i = 0; i < locations.length; i++) {
-                //    alert (locations[i]);
                 var marker = new google.maps.Marker({
                     position: locations[i]['pos'],
 
