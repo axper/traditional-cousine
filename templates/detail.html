@@ -7,11 +7,11 @@
 
     <div class="uk-inline uk-width-1-1 uk-light">
         {% if recipe.picture %}
-            <img src="{{ recipe.picture.url }}" class="uk-width-1-1">
+            <img src="{{ recipe.picture.url }}" class="uk-width-1-1" style="object-fit: cover;">
         {% endif %}
         <div class="uk-position-center">
             <h1 style="font: 400 130px/0.8 'Cookie', Helvetica, sans-serif;"
-                class="uk-margin-large-bottom">
+                class="uk-margin-large-bottom uk-text-center">
                 {{ recipe.name }}
             </h1>
         </div>
