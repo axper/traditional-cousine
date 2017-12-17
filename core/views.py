@@ -28,3 +28,7 @@ def step(request, recipe_id, order):
         'step': step_obj,
     }
     return render(request, 'step.html', context)
+
+
+def about(request):
+    return render(request, 'about.html')

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Home - Traditional Cuisine
+{% endblock %}
+{% block body %}
+
+    {% include "header.html" %}
+
+    <div class="uk-margin uk-margin-right uk-margin-left uk-grid">
+        <table class="uk-table">
+            <caption class="uk-text-center"><h1>Our Team</h1></caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tamara Bezlyudova</td>
+                    <td>Տուն տանելու աղջիկ, Project Management, Idea owner</td>
+                </tr>
+                <tr>
+                    <td>Babken Vardanyan</td>
+                    <td>Coding</td>
+                </tr>
+                <tr>
+                    <td>Neses Gevorgyan</td>
+                    <td>Coding</td>
+                </tr>
+                <tr>
+                    <td>Mari Gasparayan</td>
+                    <td>Project Management, Product Owner</td>
+                </tr>
+                <tr>
+                    <td>Andreas Yanikian</td>
+                    <td>Web Design</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

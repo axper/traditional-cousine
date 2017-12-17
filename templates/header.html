@@ -1,5 +1,7 @@
-<div style="height: 40px"></div>
-<div class="uk-panel uk-background-default" style="height: 100px">
+{#<div style="height: 40px"></div>#}
+<div class="uk-panel uk-background-default" style="height: 100px;
+padding-top: 80px;
+padding-bottom: 80px;">
     <a href="{% url "core:home" %}" class="uk-position-center">
         <img src="/media/hamegh-icon.png" class="uk-logo" alt=""
              width="185px">
@@ -9,5 +11,13 @@
         <span class="uk-search-icon-flip" data-uk-search-icon></span>
         <input class="uk-search-input uk-width-large" type="search" placeholder="Search...">
     </form>
+    <div class="uk-position-small uk-position-top-right">
+        <ul class="uk-subnav" uk-margin>
+            <li class="uk-active"><a href="#">Home</a></li>
+            <li><a href="#">Subscribe</a></li>
+{#            <li><a href="{% url "core:about" %}">About</a></li>#}
+            <li><a href="{% url "core:about" %}">About</a></li>
+        </ul>
+    </div>
 </div>
-<div style="height: 40px"></div>
+{#<div style="height: 40px"></div>#}
