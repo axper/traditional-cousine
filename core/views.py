@@ -51,11 +51,12 @@ def subscribe(request):
               'Copyright © 2007 The Hamegh Team.\nAll rights reserved.\n' \
               'You are receiving this email because you subscribed to Hamegh via our web ' \
               'interface.'
-    send_mail(
+    result = send_mail(
         'You have successfully subscribed to Hamegh',
         content,
         'no-reply@hamegh.com',
         [email],
         fail_silently=False,
     )
+    print('Email sending result: {}'.format(result))
     return redirect(to='core:home')
