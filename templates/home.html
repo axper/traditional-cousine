@@ -7,22 +7,33 @@
 
     {% include "header.html" %}
 
-    <div class="uk-container uk-container-small uk-margin">
-        {% for recipe in recipes %}
-            <a href="{% url "core:detail" recipe.id %}">
-                <div class="uk-card uk-card-default">
-                    {% if recipe.picture %}
-                        <div class="uk-card-media-top">
-                            <img src="{{ recipe.picture }}" alt="">
+    <div class="uk-container uk-margin uk-grid">
+        <div class="uk-width-3-5">
+
+        </div>
+        <div class="uk-width-2-5">
+            {% for recipe in recipes %}
+                <a href="{% url "core:detail" recipe.id %}">
+
+                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
+                         uk-grid>
+                        {% if recipe.picture %}
+                            <div class="uk-card-media-left uk-cover-container">
+                                <img src="{{ recipe.picture.url }}" alt="" uk-cover>
+                                <canvas width="600" height="400"></canvas>
+                            </div>
+                        {% endif %}
+                        <div>
+                            <div class="uk-card-body uk-padding-small">
+                                <h3 class="uk-card-title">{{ recipe.name }}</h3>
+                                <p>{{ recipe.description|slice:":50" }}...</p>
+                            </div>
                         </div>
-                    {% endif %}
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title">{{ recipe.name }}</h3>
-                        <p>{{ recipe.description }}</p>
                     </div>
-                </div>
-            </a>
-        {% endfor %}
+
+                </a>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
