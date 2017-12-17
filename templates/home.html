@@ -89,6 +89,7 @@
             ];
 
             var markers = [];
+            var infowindow = [];
 
             for (i = 0; i < locations.length; i++) {
                 var marker = new google.maps.Marker({
@@ -96,18 +97,20 @@
 
                 });
 
-                var contentString = '<div id="content"><h1>'+locations[i]['name'] +
-                    '</h1><p>'+locations[i]['descr']+' <a href="'+locations[i]['link']+'">link</a></p></div>';
+                var contentString = '<div id="content"><h1>' + locations[i]['name'] +
+                    '</h1><p>' + locations[i]['descr'] + ' <a href="' + locations[i]['link'] + '">link</a></p></div>';
 
-                var infowindow = new google.maps.InfoWindow({
+                infowindow.push(new google.maps.InfoWindow({
                     content: contentString
-                });
+                }));
 
-                marker.addListener('click', function() {
-                    infowindow.open(map, this);
-                });
+                markers.push(marker);
+            }
 
-                markers.push(marker) ;
+            for (let i = 0; i < locations.length; i++) {
+                markers[i].addListener('click', function () {
+                    infowindow[i].open(map, this);
+                });
             }
 
             // Add some markers to the map.
@@ -117,7 +120,6 @@
             //var markers = locations.map(function(location, i) {
 
             //});
-
 
 
             // Add a marker clusterer to manage the markers.
