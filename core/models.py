@@ -20,7 +20,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=200, default='Recipe Name')
     description = models.TextField(default='Description Placeholder')
     picture = models.ImageField(null=True, blank=True)
-    location = models.ManyToManyField(to=Location)
+    location = models.ManyToManyField(to=Location, related_name='location')
     ingredients = models.ManyToManyField(to=Ingredient)
     minutes = models.PositiveIntegerField(default=1)
     youtube = models.CharField(max_length=200, null=True, blank=True)

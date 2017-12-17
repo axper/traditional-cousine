@@ -6,19 +6,29 @@
     {% include "header.html" %}
 
     <div class="uk-container uk-container-large uk-margin-bottom">
-        <div class="uk-inline uk-width-1-1">
+        <div class="uk-inline uk-width-1-1 uk-light">
             {% if recipe.picture %}
                 <img src="{{ recipe.picture.url }}" class="uk-width-1-1">
             {% endif %}
-            <div class="uk-position-center uk-light">
+            <div class="uk-position-center">
                 <h1 style="font: 400 130px/0.8 'Cookie', Helvetica, sans-serif;">
                     {{ recipe.name }}
                 </h1>
             </div>
+            <div class="uk-position-bottom uk-text-center uk-margin-large-bottom">
+                <h3>
+                    {{ recipe.description }}
+                </h3>
+            </div>
+            <div class="uk-position-bottom-left uk-margin-">
+                <h5 class="uk-margin-left">
+                    {% for location in recipe.location.all %}
+                        {{ location.region }}, {{ location.country }}
+                    {% endfor %}
+                </h5>
+            </div>
         </div>
 
-        <p>{{ recipe.description }}</p>
-        <p>This recipe is from {{ recipe.location.region }}, {{ recipe.location.country }}.</p>
         <h2>Ingredients</h2>
             <ul>
                 {% for ingredient in recipe.ingredients.all %}
