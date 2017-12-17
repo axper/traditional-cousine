@@ -4,43 +4,34 @@
     Home - Traditional Cuisine
 {% endblock %}
 {% block body %}
-    <div class="uk-inline uk-margin uk-width-1-1">
-        <img src="/media/header-background.png" height="1250" alt="" class="uk-width-1-1">
 
-        <div class="uk-position-center uk-flex uk-flex-middle">
-            <img src="/media/hamegh-icon.png" width="150"/>
-        </div>
+    <div class="uk-panel uk-background-default"
+         style="background-image: url(/media/header-background.png);">
+        <img src="/media/hamegh-icon.png" class="uk-logo uk-margin-medium-left" alt=""
+             width="145px">
+        <form class="uk-search uk-search-default uk-align-right uk-position-small
+        uk-position-center-right uk-overlay-default uk-margin-medium-right">
+            <span class="uk-search-icon-flip" data-uk-search-icon></span>
+            <input class="uk-search-input uk-width-large" type="search" placeholder="Search...">
+        </form>
+    </div>
 
-        <div class="uk-container uk-container-small uk-margin-xlarge uk-position-top-center
-        uk-overlay uk-overlay-default">
-
-            <div id="header" data-uk-grid>
-                <div>
-                </div>
-            </div>
-
-            <form class="uk-search uk-search-default uk-align-right">
-                <span data-uk-search-icon></span>
-                <input class="uk-search-input" type="search" placeholder="">
-            </form>
-
-            {% for recipe in recipes %}
-                <a href="{% url "core:detail" recipe.id %}">
-                    <div class="uk-card uk-card-default">
+    <div class="uk-container uk-container-small uk-margin">
+        {% for recipe in recipes %}
+            <a href="{% url "core:detail" recipe.id %}">
+                <div class="uk-card uk-card-default">
+                    {% if recipe.picture %}
                         <div class="uk-card-media-top">
                             <img src="{{ recipe.picture }}" alt="">
                         </div>
-                        <div class="uk-card-body">
-                            <h3 class="uk-card-title">{{ recipe.name }}</h3>
-                            <p>{{ recipe.description }}</p>
-                        </div>
+                    {% endif %}
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">{{ recipe.name }}</h3>
+                        <p>{{ recipe.description }}</p>
                     </div>
-                </a>
-            {% endfor %}
-
-
-        </div>
+                </div>
+            </a>
+        {% endfor %}
     </div>
-
 
 {% endblock %}
