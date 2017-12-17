@@ -43,20 +43,12 @@ def subscribe(request):
     if not email:
         return HttpResponse(content='email cannot be empty', status=400)
     print('Subscribed email: ' + email)
-    # content = '<p>Welcome to Hamegh!</p>' \
-    #     '<p>You have successfully subscribed to our recipes! If you have any further questions, ' \
-    #     'please feel free to contact us via hamegh-help@lazydevelo.com</p>' \
-    #     'Thank you!<br>' \
-    #     '<center style="color:#606060">' \
-    #     'Copyright © {% now "Y" %} The Hamegh Team. All rights reserved.<br>' \
-    #     'You are receiving this email because you subscribed to Hamegh via our web ' \
-    #     'interface.</center>'
-    content = 'Welcome to Hamegh!\n' \
+    content = 'Welcome to Hamegh!\n\n' \
               'You have successfully subscribed to our recipes! If you have any further questions, ' \
-              'please feel free to contact us via hamegh-help@lazydevelo.com\n' \
+              'please feel free to contact us via help@hamegh.com\n\n' \
               'Thank you!\n' \
               '\n' \
-              'Copyright © {% now "Y" %} The Hamegh Team. All rights reserved.' \
+              'Copyright © 2007 The Hamegh Team.\nAll rights reserved.\n' \
               'You are receiving this email because you subscribed to Hamegh via our web ' \
               'interface.'
     send_mail(
