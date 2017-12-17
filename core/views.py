@@ -48,7 +48,7 @@ def subscribe(request):
               'please feel free to contact us via help@hamegh.com\n\n' \
               'Thank you!\n' \
               '\n' \
-              'Copyright © 2007 The Hamegh Team.\nAll rights reserved.\n' \
+              'Copyright © 2017 The Hamegh Team.\nAll rights reserved.\n' \
               'You are receiving this email because you subscribed to Hamegh via our web ' \
               'interface.'
     result = send_mail(
