@@ -3,7 +3,9 @@ source ~/.virtualenvs/traditional_cousine/bin/activate
 python manage.py migrate
 python manage.py collectstatic --no-input
 pip install -r requirements.txt
-killall python
-python manage.py runserver 0.0.0.0:80 &
-#sudo systemctl restart supervisor
-#sudo systemctl status supervisor
+#killall python
+#python manage.py runserver 0.0.0.0:80 &
+sudo systemctl restart supervisor
+sudo systemctl restart nginx
+sudo systemctl status supervisor
+sudo systemctl status nginx
