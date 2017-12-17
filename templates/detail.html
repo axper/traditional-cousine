@@ -59,7 +59,7 @@
                     <div class="uk-card-body">
                         <ul style="list-style: none;">
                             {% for step in steps %}
-                                <li class="uk-open">
+                                <li class="uk-open uk-margin-medium-bottom">
                                     <p><span class="uk-badge"
                                           style="
                                           min-width: 42px;
@@ -70,7 +70,10 @@
                                         {{ step.order }}
                                     </span>
                                     {{ step.description }}</p>
-                                    {% if step.time %} ({{ step.time }} minutes){% endif %}
+                                    <p style="text-align: right;">{% if step.time %}
+                                        ({{ step.time }}
+                                        minutes
+                                        ){% endif %}</p>
                                     <div>
                                         {% if step.picture %}
                                             <img src="{{ step.picture.url }}" class="uk-width-1-1">
