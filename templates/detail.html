@@ -22,9 +22,8 @@
         </div>
         <div class="uk-position-bottom-left uk-margin-left">
             <h5>
-                {% for location in recipe.location.all %}
-                    <span class="uk-badge">{{ location.region }}, {{ location.country }}</span>
-                {% endfor %}
+                <span class="uk-badge">{{ recipe.location.first.region }},
+                    {{ recipe.location.first.country }}</span>
             </h5>
         </div>
         <div class="uk-position-bottom-right uk-margin-right">
@@ -33,7 +32,6 @@
             </h5>
         </div>
     </div>
-
 
     <div class="uk-container uk-container-large uk-margin-bottom uk-margin-top">
         <div class="uk-grid-small uk-grid-match uk-margin" data-uk-grid>
@@ -86,10 +84,6 @@
                 </div>
             </div>
         </div>
-
-        {% if recipe.youtube %}
-            <p><a href="{{ recipe.youtube }}">Youtube Video</a></p>
-        {% endif %}
 
     </div>
 {% endblock %}
