@@ -23,13 +23,13 @@
             <div class="uk-position-bottom-left uk-margin-left">
                 <h5>
                     {% for location in recipe.location.all %}
-                        {{ location.region }}, {{ location.country }}
+                        <span class="uk-badge">{{ location.region }}, {{ location.country }}</span>
                     {% endfor %}
                 </h5>
             </div>
             <div class="uk-position-bottom-right uk-margin-right">
                 <h5>
-                    Time required: {{ recipe.minutes }} minutes
+                    Time required: <span class="uk-badge">{{ recipe.minutes }} minutes</span>
                 </h5>
             </div>
         </div>
