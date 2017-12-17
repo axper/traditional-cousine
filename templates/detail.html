@@ -34,27 +34,51 @@
             </div>
         </div>
 
-        <h2>Ingredients</h2>
-            <ul>
-                {% for ingredient in recipe.ingredients.all %}
-                    <li>{{ ingredient.name }}</li>
-                {% endfor %}
-            </ul>
-        <h2>Steps</h2>
-        <ul data-uk-accordion>
-            {% for step in steps %}
-                <a href="{% url "core:step" step.recipe.id step.order %}">
-                    <li class="uk-open">
-                        <h3 class="uk-accordion-title">{{ step.order }}</h3>
-                        <div class="uk-accordion-content">
-                            <p>{{ step.description }}</p>
-                        </div>
-                    </li>
-                </a>
-            {% endfor %}
-        </ul>
+        <div class="uk-grid-small uk-grid-match uk-margin" data-uk-grid>
+            <div class="uk-width-1-4">
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-header">
+                        <h3 class="uk-card-title">Ingredients</h3>
+                    </div>
+                    <div class="uk-card-body">
+                        <ul>
+                            {% for ingredient in recipe.ingredients.all %}
+                                <li>{{ ingredient.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-width-3-4">
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-header">
+                        <h3 class="uk-card-title">Directions</h3>
+                    </div>
+                    <div class="uk-card-body">
+                        <ul data-uk-accordion>
+                            {% for step in steps %}
+                                <li {% if step.order == 1 %}class="uk-open"{% endif %}>
+                                    <h3 class="uk-accordion-title">
+                                        Step {{ step.order }}
+                                        {% if step.time %} ({{ step.time }} minutes){% endif %}
+                                    </h3>
+                                    <div class="uk-accordion-content">
+                                        {% if step.picture %}
+                                            <img src="{{ step.picture.url }}" class="uk-width-1-1">
+                                        {% endif %}
+                                        <p>{{ step.description }}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {% if recipe.youtube %}
             <p><a href="{{ recipe.youtube }}">Youtube Video</a></p>
         {% endif %}
+
     </div>
 {% endblock %}
